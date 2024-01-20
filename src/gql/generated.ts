@@ -24,8 +24,12 @@ export type CreateSubmissionInput = {
 };
 
 export type CreateUserInput = {
-  /** Example field (placeholder) */
-  exampleField: Scalars['Int']['input'];
+  /** email */
+  email: Scalars['String']['input'];
+  /** password */
+  password: Scalars['String']['input'];
+  /** username */
+  username: Scalars['String']['input'];
 };
 
 export type Mutation = {
@@ -91,7 +95,7 @@ export type Submission = {
   /** createdAt */
   createdAt: Scalars['String']['output'];
   /** deletedAt */
-  deletedAt: Scalars['String']['output'];
+  deletedAt?: Maybe<Scalars['String']['output']>;
   /** id */
   id: Scalars['Int']['output'];
   /** title */
@@ -109,9 +113,13 @@ export type UpdateSubmissionInput = {
 };
 
 export type UpdateUserInput = {
-  /** Example field (placeholder) */
-  exampleField?: InputMaybe<Scalars['Int']['input']>;
+  /** email */
+  email?: InputMaybe<Scalars['String']['input']>;
   id: Scalars['Int']['input'];
+  /** password */
+  password?: InputMaybe<Scalars['String']['input']>;
+  /** username */
+  username?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type User = {
@@ -133,56 +141,56 @@ export type UserQueryVariables = Exact<{
 }>;
 
 
-export type UserQuery = { __typename?: 'Query', user: { __typename?: 'User', id: number, name: string, email: string, password: string, submissions: Array<{ __typename?: 'Submission', id: number, title: string, content: string, userId: number, createdAt: string, updatedAt: string, deletedAt: string } | null> } };
+export type UserQuery = { __typename?: 'Query', user: { __typename?: 'User', id: number, name: string, email: string, password: string, submissions: Array<{ __typename?: 'Submission', id: number, title: string, content: string, userId: number, createdAt: string, updatedAt: string, deletedAt?: string | null } | null> } };
 
 export type SubmissionQueryVariables = Exact<{
   id: Scalars['Int']['input'];
 }>;
 
 
-export type SubmissionQuery = { __typename?: 'Query', submission: { __typename?: 'Submission', id: number, title: string, content: string, userId: number, createdAt: string, updatedAt: string, deletedAt: string } };
+export type SubmissionQuery = { __typename?: 'Query', submission: { __typename?: 'Submission', id: number, title: string, content: string, userId: number, createdAt: string, updatedAt: string, deletedAt?: string | null } };
 
 export type CreateUserMutationVariables = Exact<{
   createUserInput: CreateUserInput;
 }>;
 
 
-export type CreateUserMutation = { __typename?: 'Mutation', createUser: { __typename?: 'User', id: number, name: string, email: string, password: string, submissions: Array<{ __typename?: 'Submission', id: number, title: string, content: string, userId: number, createdAt: string, updatedAt: string, deletedAt: string } | null> } };
+export type CreateUserMutation = { __typename?: 'Mutation', createUser: { __typename?: 'User', id: number, name: string, email: string, password: string, submissions: Array<{ __typename?: 'Submission', id: number, title: string, content: string, userId: number, createdAt: string, updatedAt: string, deletedAt?: string | null } | null> } };
 
 export type UpdateUserMutationVariables = Exact<{
   updateUserInput: UpdateUserInput;
 }>;
 
 
-export type UpdateUserMutation = { __typename?: 'Mutation', updateUser: { __typename?: 'User', id: number, name: string, email: string, password: string, submissions: Array<{ __typename?: 'Submission', id: number, title: string, content: string, userId: number, createdAt: string, updatedAt: string, deletedAt: string } | null> } };
+export type UpdateUserMutation = { __typename?: 'Mutation', updateUser: { __typename?: 'User', id: number, name: string, email: string, password: string, submissions: Array<{ __typename?: 'Submission', id: number, title: string, content: string, userId: number, createdAt: string, updatedAt: string, deletedAt?: string | null } | null> } };
 
 export type RemoveUserMutationVariables = Exact<{
   id: Scalars['Int']['input'];
 }>;
 
 
-export type RemoveUserMutation = { __typename?: 'Mutation', removeUser: { __typename?: 'User', id: number, name: string, email: string, password: string, submissions: Array<{ __typename?: 'Submission', id: number, title: string, content: string, userId: number, createdAt: string, updatedAt: string, deletedAt: string } | null> } };
+export type RemoveUserMutation = { __typename?: 'Mutation', removeUser: { __typename?: 'User', id: number, name: string, email: string, password: string, submissions: Array<{ __typename?: 'Submission', id: number, title: string, content: string, userId: number, createdAt: string, updatedAt: string, deletedAt?: string | null } | null> } };
 
 export type CreateSubmissionMutationVariables = Exact<{
   createSubmissionInput: CreateSubmissionInput;
 }>;
 
 
-export type CreateSubmissionMutation = { __typename?: 'Mutation', createSubmission: { __typename?: 'Submission', id: number, title: string, content: string, userId: number, createdAt: string, updatedAt: string, deletedAt: string } };
+export type CreateSubmissionMutation = { __typename?: 'Mutation', createSubmission: { __typename?: 'Submission', id: number, title: string, content: string, userId: number, createdAt: string, updatedAt: string, deletedAt?: string | null } };
 
 export type UpdateSubmissionMutationVariables = Exact<{
   updateSubmissionInput: UpdateSubmissionInput;
 }>;
 
 
-export type UpdateSubmissionMutation = { __typename?: 'Mutation', updateSubmission: { __typename?: 'Submission', id: number, title: string, content: string, userId: number, createdAt: string, updatedAt: string, deletedAt: string } };
+export type UpdateSubmissionMutation = { __typename?: 'Mutation', updateSubmission: { __typename?: 'Submission', id: number, title: string, content: string, userId: number, createdAt: string, updatedAt: string, deletedAt?: string | null } };
 
 export type RemoveSubmissionMutationVariables = Exact<{
   id: Scalars['Int']['input'];
 }>;
 
 
-export type RemoveSubmissionMutation = { __typename?: 'Mutation', removeSubmission: { __typename?: 'Submission', id: number, title: string, content: string, userId: number, createdAt: string, updatedAt: string, deletedAt: string } };
+export type RemoveSubmissionMutation = { __typename?: 'Mutation', removeSubmission: { __typename?: 'Submission', id: number, title: string, content: string, userId: number, createdAt: string, updatedAt: string, deletedAt?: string | null } };
 
 
 export const UserDocument = gql`

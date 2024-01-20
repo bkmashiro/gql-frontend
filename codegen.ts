@@ -3,9 +3,9 @@ import type { CodegenConfig } from '@graphql-codegen/cli';
 
 const config: CodegenConfig = {
   overwrite: true,
-  // schema: "http://localhost:3000/graphql",
-  schema: "../gql-test/src/schema.gql",
-  documents: "../gql-test/src/operation.gql",
+  schema: "http://localhost:3000/graphql",
+  // schema: "../gql-backend/src/schema.gql",
+  documents: "../gql-backend/src/operation.gql",
   generates: {
     './src/gql/generated.ts': {
       plugins: ['typescript', 'typescript-operations', 'typescript-vue-apollo'],
